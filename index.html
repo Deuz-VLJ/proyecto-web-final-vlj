@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Librería Express</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Proyecto final</p>
+          <h1>Librería Express</h1>
+          <p class="lead">Consulta el catálogo, valida existencia y crea órdenes desde una interfaz lista para Vercel y móvil.</p>
+        </div>
+        <div class="hero-meta">
+          <span>API catálogo</span>
+          <strong>/api/libros/:id</strong>
+          <span>API órdenes</span>
+          <strong>/api/ordenes</strong>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Catálogo</p>
+              <h2>Libros disponibles</h2>
+            </div>
+            <button id="reloadCatalog" class="ghost">Actualizar</button>
+          </div>
+          <div id="catalogList" class="catalog-list"></div>
+        </article>
+
+        <article class="card panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Búsqueda</p>
+              <h2>Consultar libro</h2>
+            </div>
+          </div>
+
+          <form id="bookForm" class="form">
+            <label>
+              ID del libro
+              <input id="bookId" type="number" min="1" placeholder="Ej. 1" required />
+            </label>
+            <button type="submit">Buscar</button>
+          </form>
+
+          <div id="bookResult" class="result muted">Escribe un ID para consultar el catálogo.</div>
+        </article>
+
+        <article class="card panel order-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Órdenes</p>
+              <h2>Crear compra</h2>
+            </div>
+          </div>
+
+          <form id="orderForm" class="form">
+            <label>
+              Cliente
+              <input id="cliente" type="text" placeholder="Tu nombre" required />
+            </label>
+            <div class="two-cols">
+              <label>
+                ID del libro
+                <input id="orderBookId" type="number" min="1" placeholder="Ej. 1" required />
+              </label>
+              <label>
+                Cantidad
+                <input id="cantidad" type="number" min="1" placeholder="Ej. 1" required />
+              </label>
+            </div>
+            <button type="submit">Crear orden</button>
+          </form>
+
+          <div id="orderResult" class="result muted">La respuesta aparecerá aquí al crear una orden.</div>
+        </article>
+      </section>
+    </main>
+
+    <template id="bookCardTemplate">
+      <article class="book-card">
+        <h3></h3>
+        <p class="author"></p>
+        <div class="book-meta"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
